@@ -3,10 +3,10 @@
 
 //1st():definition 2nd():execution
 
-/*(function database() {//named iife
-  console.log(`DATABASE CONNECTED `);
+(function database() {
+  //named iife
+  console.log(`DATABASE CONNECTED`);
 })();
-*/
 
 //why iife? because of global scope pollution
 ((name) => {
