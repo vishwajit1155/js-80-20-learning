@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout</title>
+  </head>
+  <body>
+    <h1>setTimeout</h1>
+    <br />
+    <button id="stop">stop</button>
+  </body>
+  <script>
+    const sayMyName = function () {
+      console.log("JavaScript");
+    };
+
+    //don't need to invoke function
+    //setTimeout(sayMyName, 2000); //reference of function
+
+    //change h1
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "Frontend-Dev";
+    };
+
+    const changeMe = setTimeout(changeText, 2000);
+
+    //how do we stop setTimeout ?
+    //clearTimeout // it's need reference of setTimeout
+    //clearTimeout(changeMe, 2000);
+    // it is usefull for invents
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(changeMe, 2000);
+      console.log("STOPPED");
+    });
+  </script>
+</html>
