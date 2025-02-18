@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API</title>
+  </head>
+  <body>
+    <h1>API</h1>
+  </body>
+
+  <script>
+    //XML Ajax request
+
+    const requestUrl = "https://api.github.com/users/vishwajit1155";
+    const xhr = new XMLHttpRequest(); // used to send/get request
+
+    xhr.open("GET", requestUrl); // open() need to call
+    // console.log("HERE");
+    // console.log(xhr.readyState);
+
+    //continusally track state
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState); // 2,3,4
+
+      if (xhr.readyState === 4) {
+        let data = this.responseText; // this is used in current context
+        console.log(data);
+        console.log(typeof data); //string
+        console.log(data.bio); // undefined
+        //-----------------------------------
+        data = JSON.parse(this.responseText); // convert string into object
+        console.log(typeof data); //object
+        console.log(data.followers); // 0
+      }
+    };
+
+    xhr.send();
+    
+  </script>
+</html>
